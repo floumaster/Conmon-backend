@@ -1,0 +1,28 @@
+{
+  "name": "conmon",
+  "version": "1.0.0",
+  "description": "backend",
+  "main": "app.js",
+  "scripts": {
+    "test": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/floumaster/Conmon-backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/floumaster/Conmon-backend/issues"
+  },
+  "homepage": "https://github.com/floumaster/Conmon-backend#readme",
+  "dependencies": {
+    "firebase-admin": "^11.7.0",
+    "moment": "^2.29.4",
+    "pg": "^8.10.0",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.31.0",
+    "sequelize-cli": "^6.6.0",
+    "uuid": "^9.0.0"
+  }
+}
