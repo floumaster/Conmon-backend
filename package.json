@@ -18,6 +18,7 @@
   "homepage": "https://github.com/floumaster/Conmon-backend#readme",
   "dependencies": {
     "firebase-admin": "^11.7.0",
+    "md5": "^2.3.0",
     "moment": "^2.29.4",
     "pg": "^8.10.0",
     "pg-hstore": "^2.3.4",
