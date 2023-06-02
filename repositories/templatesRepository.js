@@ -40,8 +40,15 @@ class TemplatesRepository {
         return createdSpending.dataValues
     }
 
+    async unapplyAllTemplates() {
+        const templates = await selectWithConditon(this.model, { "isApplied": true })
+        const templatesToUpdatePromises = templates.map(template => {
+            return update(this.model, {isApplied: true}, template.id)
+        })
+        await Promise.all(templatesToUpdatePromises)
+    }
+
     async applyUserTemplate(templateId){
-        const templateToApply = (await selectWithConditon(this.model, { "id": templateId }))[0]
         const templateSpendingsIds = await selectWithConditon(SpendingTemplate, { "template_id": templateId })
         const spendingsToCreate = []
         const spendingPromises = templateSpendingsIds.map(spending => {
@@ -61,7 +68,7 @@ class TemplatesRepository {
             return spendingRep.createUserSpendings(newData)
         })
         await Promise.all(newSpendingsPromises)
-        const updatedTemplate = await update(this.model, {isApplied: true}, templateToApply.id)
+        const updatedTemplate = await update(this.model, {isApplied: true}, templateId)
         return updatedTemplate
     }
 };
